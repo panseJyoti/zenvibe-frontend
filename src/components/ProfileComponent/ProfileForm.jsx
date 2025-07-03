@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UploadProfileImage from "./UploadProfileImage";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { API_ROUTES,BASE_URL } from "../../constants/apiRoutes";
+import { API_ROUTES } from "../../constants/apiRoutes";
 
 function ProfileForm() {
   const [showModal, setShowModal] = useState(false);
@@ -141,7 +141,7 @@ function ProfileForm() {
           <img
             src={
               formData.profileImage
-                ? `${BASE_URL}/uploads/${formData.profileImage}`
+                ? `${import.meta.env.VITE_BASE_URL}/uploads/${formData.profileImage}`
                 : "/default-avatar.png"
             }
             alt="Profile"

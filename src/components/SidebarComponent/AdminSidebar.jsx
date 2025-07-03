@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import API from '../../Apis';
-import { BASE_URL } from '../../constants/apiRoutes';
 import LogoutButton from '../authComponent/LogoutButton';
 import {
   FaSignOutAlt,
@@ -55,7 +54,7 @@ const AdminSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <img
           src={
             user?.profileImage
-              ? `${BASE_URL}/uploads/${user.profileImage}`
+              ? `${import.meta.env.VITE_BASE_URL}/uploads/${user.profileImage}`
               : 'https://i.pravatar.cc/100?img=3'
           }
           alt="Profile"

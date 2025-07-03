@@ -50,7 +50,7 @@ const UserProfile = () => {
         <div className="absolute -bottom-20 left-6 sm:left-10 flex items-center gap-6 z-10 w-full pr-10 justify-between">
           <div className="flex items-center gap-6">
             <img
-              src={user.profileImage ? `${BASE_URL}/uploads/${user.profileImage}?${Date.now()}` : "/default-avatar.png"}
+              src={user.profileImage ? `${import.meta.env.VITE_BASE_URL}/uploads/${user.profileImage}?${Date.now()}` : "/default-avatar.png"}
               alt="Profile"
               className="w-36 h-36 border-4 border-white object-cover shadow-xl"
             />
