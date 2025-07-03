@@ -1,0 +1,58 @@
+/* Base calendar */
+.react-calendar {
+  width: 100%;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+.react-calendar__tile {
+  padding: 10px 6px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Current day */
+.react-calendar__tile--now {
+  background: #f3d0a4 !important;
+  color: #660e60;
+  font-weight: bold;
+}
+
+/* Mood log marked date */
+.mood-date {
+  background: #b494b2 !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  width: 10px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Selected date styling */
+.selected-date {
+  background: #893f71 !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #ac6f82;
+  border-radius: 10px;
+}

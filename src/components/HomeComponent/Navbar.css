@@ -1,0 +1,16 @@
+.logo {
+     color: linear-gradient(to right, #481D39, #ec4899);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navlink {
+    color: #481D39;
+}
+
+.join-btn {
+    background: linear-gradient(to right, #481D39, #ec4899)
+}
+
+.get-started-btn {
+    background: linear-gradient(to right, #481D39, #ec4899)
+}
