@@ -141,7 +141,7 @@ function ProfileForm() {
           <img
             src={
               formData.profileImage
-                ? `${import.meta.env.VITE_BASE_URL}/uploads/${formData.profileImage}`
+                ? `https://zenvibe-backend.onrender.com/uploads/${formData.profileImage}`
                 : "/default-avatar.png"
             }
             alt="Profile"

@@ -20,7 +20,7 @@ const MoodLogger = () => {
     const fetchMoods = async () => {
       try {
         const res = await API.get(API_ROUTES.GET_USER_MOODS);
-        console.log("response data :",res.data);
+        console.log("response data :", res.data);
         setMoods(res.data?.moods || res.data || []);
       } catch (err) {
         console.error('Failed to load moods:', err);
@@ -182,7 +182,7 @@ const MoodLogger = () => {
                       <p className="text-sm mt-1">{activity.description}</p>
                       {activity.image && (
                         <img
-                          src={activity.image}
+                          src={`https://zenvibe-backend.onrender.com/uploads/${activity.image}`}
                           alt={activity.name}
                           className="mt-3 w-full aspect-video object-cover rounded-md"
                         />

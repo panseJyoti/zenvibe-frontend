@@ -56,7 +56,7 @@ const UserSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <img
           src={
             user?.profileImage
-              ? `${import.meta.env.VITE_BASE_URL}/uploads/${user.profileImage}`
+              ? `https://zenvibe-backend.onrender.com/uploads/${user.profileImage}`
               : 'https://i.pravatar.cc/100?img=3'
           }
           alt="Profile"

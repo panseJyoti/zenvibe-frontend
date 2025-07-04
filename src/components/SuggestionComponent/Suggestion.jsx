@@ -89,7 +89,7 @@ const Suggestions = () => {
               >
                 {activity.image && (
                   <img
-                    src={activity.image}
+                    src={`https://zenvibe-backend.onrender.com/uploads/${activity.image}`}
                     alt={activity.name}
                     className="w-full h-36 object-cover"
                   />

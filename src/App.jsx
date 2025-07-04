@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
+import ProtectedRoute from './components/ProtectedRoute';
 import "react-toastify/dist/ReactToastify.css";
 
 // Layouts
@@ -47,8 +48,8 @@ function App() {
         <Route path="/verify-otp" element={<VerifyOtp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        {/* ✅ User Routes */}
-        <Route path="/user" element={<UserLayout />}>
+        {/* ✅ Protected User Routes */}
+        <Route path="/user" element={<ProtectedRoute> <UserLayout /> </ProtectedRoute>}>
           <Route path="dashboard" element={<UserDashboard />} />
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit-profile" element={<ProfileForm />} />
@@ -58,8 +59,8 @@ function App() {
           <Route path="analytics" element={<MoodAnalyticsChart />} />
         </Route>
 
-        {/* ✅ Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
+        {/* ✅ Protected Admin Routes */}
+        <Route path="/admin" element={<ProtectedRoute> <AdminLayout /> </ProtectedRoute>}>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit-profile" element={<ProfileForm />} />
@@ -67,7 +68,7 @@ function App() {
           <Route path="activities" element={<ActivitiesManager />} />
           <Route path="activityList" element={<ActivityList />} />
           <Route path="activities/view" element={<ViewActivities />} />
-          <Route path="users/:userId" element={<UserDetailPage />} /> 
+          <Route path="users/:userId" element={<UserDetailPage />} />
         </Route>
       </Routes>
 

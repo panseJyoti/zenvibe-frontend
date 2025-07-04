@@ -66,12 +66,12 @@ function ActivityList() {
               className="relative bg-white border border-[#cfa093] rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {activity.image && (
-                <img
-                  src={activity.image}
-                  alt={activity.name}
-                  className="w-full h-36 object-cover"
-                />
-              )}
+                  <img
+                    src={`https://zenvibe-backend.onrender.com/uploads/${activity.image}`}
+                    alt={activity.name}
+                    className="w-full h-36 object-cover"
+                  />
+                )}
 
               {/* AI Generated Badge */}
               {activity.isAI && (
