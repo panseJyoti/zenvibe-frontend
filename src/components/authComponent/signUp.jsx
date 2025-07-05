@@ -15,6 +15,7 @@ const Signup = () => {
 
   const [msg, setMsg] = useState({ type: '', text: '' });
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false); // ✅ Prevent multiple popups
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -58,6 +59,9 @@ const Signup = () => {
   };
 
   const handleGoogleSignup = async () => {
+    if (googleLoading) return;
+    setGoogleLoading(true);
+
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
@@ -66,7 +70,7 @@ const Signup = () => {
         email: user.email,
         username: user.displayName || 'Google User',
         password: user.uid,
-        isGoogle: true,     
+        isGoogle: true,
       };
 
       const res = await API.post(API_ROUTES.REGISTER, googleUserData);
@@ -88,8 +92,13 @@ const Signup = () => {
       console.error('Google Signup Error:', err);
       setMsg({
         type: 'error',
-        text: err.response?.data?.msg || 'Google signup failed. Please try again.',
+        text:
+          err.code === 'auth/cancelled-popup-request'
+            ? 'Please wait... popup already open!'
+            : err.message || 'Google signup failed. Please try again.',
       });
+    } finally {
+      setGoogleLoading(false);
     }
   };
 
