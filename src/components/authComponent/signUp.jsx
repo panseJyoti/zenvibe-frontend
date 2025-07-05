@@ -72,7 +72,7 @@ const Signup = () => {
         password: user.uid,
         isGoogle: true,
       };
-
+      console.log("google user data.....:",googleUserData);
       const res = await API.post(API_ROUTES.REGISTER, googleUserData);
       const { token, user: userData, msg } = res.data;
 
