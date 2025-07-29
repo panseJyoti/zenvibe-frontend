@@ -4,6 +4,7 @@ import API from '../../Apis';
 import { API_ROUTES } from '../../constants/apiRoutes';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../firebase';
+import Spinner from '../Spinner';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const Signup = () => {
 
   const [msg, setMsg] = useState({ type: '', text: '' });
   const [loading, setLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false); // ✅ Prevent multiple popups
+  const [googleLoading, setGoogleLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -72,7 +73,7 @@ const Signup = () => {
         password: user.uid,
         isGoogle: true,
       };
-      console.log("google user data.....:",googleUserData);
+      console.log("google user data.....:", googleUserData);
       const res = await API.post(API_ROUTES.REGISTER, googleUserData);
       const { token, user: userData, msg } = res.data;
 
@@ -101,7 +102,7 @@ const Signup = () => {
       setGoogleLoading(false);
     }
   };
-
+  if (loading) return <Spinner loading={true} />;
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FF00CC] to-[#481D39] dark:from-gray-800 dark:to-gray-900 px-4">
       <div className="w-full max-w-md backdrop-blur-[20px] bg-white/10 dark:bg-white/10 border border-white/30 text-white p-8 md:p-10 rounded-2xl shadow-2xl">
@@ -111,11 +112,10 @@ const Signup = () => {
 
         {msg.text && (
           <div
-            className={`mb-4 p-3 rounded text-sm text-center ${
-              msg.type === 'error'
-                ? 'bg-red-200/30 text-red-200'
-                : 'bg-green-200/30 text-green-200'
-            }`}
+            className={`mb-4 p-3 rounded text-sm text-center ${msg.type === 'error'
+              ? 'bg-red-200/30 text-red-200'
+              : 'bg-green-200/30 text-green-200'
+              }`}
           >
             {msg.text}
           </div>

@@ -43,7 +43,10 @@ const UserSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       {/* Top Toggle Button */}
       <div className="flex justify-end p-3">
         <button
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          onClick={() => {
+            setIsSidebarOpen(!isSidebarOpen);
+            localStorage.setItem('userSidebarOpen', !isSidebarOpen);
+          }}
           className="text-white bg-[#5a2748] p-2 rounded-full hover:bg-pink-400 transition"
           title={isSidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
         >
@@ -69,7 +72,7 @@ const UserSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               {user?.username
                 ? user.username
                   .toLowerCase()
-                  .split(/\s+/) 
+                  .split(/\s+/)
                   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                   .join(' ')
                 : 'User'}
